@@ -8,6 +8,7 @@ def read_in_chunks(file_object, chunk_size=9900000):
         yield data
 
 
+
 file_path = "../sample.zip"
 
 messages = []
