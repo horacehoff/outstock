@@ -7,11 +7,14 @@ import time
 def upload_file(filepath):
     timestamp = int(time.time() * 1000)
     history = {}
-    with open("history", "a+") as f:
-        try:
-            history = json.loads(f.read())
-        except:
-            pass
+    try:
+        with open("history", "r") as f:
+            try:
+                history = json.loads(f.read())
+            except:
+                pass
+    except:
+        pass
 
     filename = os.path.basename(filepath)
     filesize = os.path.getsize(filepath)
