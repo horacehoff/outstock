@@ -29,9 +29,7 @@ def fragments_to_file(folder, filename):
         with open("temp/fragment"+str(x),"rb") as f:
             total += f.read()
         print(f"{i} / {len(fragments)}")
-    print(str(os.path.splitext(filename)[1]))
     file_path = asksaveasfile(initialfile=filename,
                       defaultextension=str(os.path.splitext(filename)[1]), filetypes=[("All Files", "*.*")])
-    print(f)
     with open(file_path.name,"wb") as f:
         f.write(total)

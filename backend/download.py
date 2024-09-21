@@ -5,12 +5,12 @@ import os
 from shutil import rmtree
 from backend.converter import fragments_to_file
 
-
+# https://gist.github.com/yanqd0/c13ed29e29432e3cf3e7c38467f42f51
 def download(url: str, fname: str, chunk_size=1024, total_files=10):
     resp = requests.get(url, stream=True)
     total = int(resp.headers.get('content-length', 0))
     with open("temp/"+fname, 'wb') as file, tqdm(
-        desc=fname+f"/ {total_files}",
+        desc=fname.replace("fragment","fragment ")+f"/{total_files}",
         total=total,
         unit='iB',
         unit_scale=True,
