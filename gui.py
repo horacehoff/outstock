@@ -2,12 +2,13 @@ from tkinter import *
 from tkinter import filedialog
 from PIL import Image, ImageTk
 
+from backend.webhook import upload_file
+
+
 def fileSel():
     file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
     if file_path:
-        with open("threads", "w") as g:
-            g.write(file_path)
-            g.close()
+        upload_file(file_path)
         buttonTest.config(text=f"Selected File: {file_path}")
         return file_path
 

@@ -2,7 +2,7 @@ import json
 import requests
 from tqdm import tqdm
 import os
-
+from shutil import rmtree
 from backend.converter import fragments_to_file
 
 
@@ -22,7 +22,7 @@ def download(url: str, fname: str, chunk_size=1024, total_files=10):
 
 
 history = {}
-with open("history", "r") as f:
+with open("../history", "r") as f:
     try:
         history = json.loads(f.read())
     except:
@@ -37,10 +37,11 @@ def download_file(filename):
     for url in history[filename]:
         download(url, "fragment"+str(i+1), total_files=len(history[filename]))
         i += 1
+    fragments_to_file("temp/", filename.split("-**-")[0])
+    rmtree("temp/")
 
-# download_file("sample.zip-**-1726915693322")
-fragments_to_file("temp/")
 
+download_file("Ollama-darwin.zip-**-1726920665161")
 
 # for x in list(history.keys()):
 # download(history[list(history.keys())[0]][0], fname="fragment0")

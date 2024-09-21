@@ -25,5 +25,3 @@ def fragments_to_file(folder, filename):
             total += f.read()
     with open("test.zip","wb") as f:
         f.write(total)
-
-fragments_to_file("temp/")
