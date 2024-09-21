@@ -20,8 +20,12 @@ def fragments_to_file(folder, filename):
     fragments = [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
     fragments = sorted([int(f.replace("fragment","")) for f in fragments])
     total = b""
+    print("GROUPING FRAGMENTS...")
+    i = 0
     for x in fragments:
+        i += 1
         with open("temp/fragment"+str(x),"rb") as f:
             total += f.read()
+        print(f"{i} / {len(fragments)}")
     with open(filename,"wb") as f:
         f.write(total)

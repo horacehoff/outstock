@@ -41,7 +41,7 @@ def download_file(filename):
     rmtree("temp/")
 
 
-download_file("The.Amazing.Spiderman.2012.MULTi.VFF.2160p.10bit.4KLight.HDR.BluRay.x265.AAC.7.1-Wawacity.tv.mkv-**-1726920918653")
+download_file("PIA22418_upscayl_4x_ultrasharp.png-**-1726925343726")
 
 # for x in list(history.keys()):
 # download(history[list(history.keys())[0]][0], fname="fragment0")
