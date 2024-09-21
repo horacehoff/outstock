@@ -15,12 +15,15 @@ class BotClient(discord.Client):
 
 
     async def on_message(self, message):
+        def get_all_fragments(filename):
+
+
+
         messages = [message async for message in client.get_channel(1246476145176870924).history()]
         messages_names = []
         for message in messages:
-            if not "SENDING" in message.content:
+            if not "SENDING" in message.content and "    +-/+OUTSTOCKFILE" in message.content:
                 messages_names.append(message.content.split("+-/+")[0])
-            await message.delete()
         messages_names = list(set(messages_names))
         print(messages_names)
         print(messages)
@@ -52,7 +55,7 @@ class BotClient(discord.Client):
                     i += 1
                     await client.get_channel(1246476145176870924).send(
                         filename + "+-/+" + f"{i}/{len(messages)}" + "+-/+" + str(filesize) + "+-/+          " + str(
-                            int(i * 100 / len(messages))) + "%", file=discord.File("fragment.ostk"))
+                            int(i * 100 / len(messages))) + "%"+"    +-/+OUTSTOCKFILE", file=discord.File("fragment.ostk"))
                     print(f"{i}/{len(messages)}")
                 await client.get_channel(1246476145176870924).send(f"SENT {filename} TO SERVER!")
                 os.remove("fragment.ostk")
