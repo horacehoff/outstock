@@ -1,4 +1,6 @@
 import os
+from tkinter.filedialog import asksaveasfile
+
 
 def file_to_messages(filepath):
     # https://stackoverflow.com/a/519653
@@ -27,5 +29,9 @@ def fragments_to_file(folder, filename):
         with open("temp/fragment"+str(x),"rb") as f:
             total += f.read()
         print(f"{i} / {len(fragments)}")
-    with open(filename,"wb") as f:
+    print(str(os.path.splitext(filename)[1]))
+    file_path = asksaveasfile(initialfile=filename,
+                      defaultextension=str(os.path.splitext(filename)[1]), filetypes=[("All Files", "*.*")])
+    print(f)
+    with open(file_path.name,"wb") as f:
         f.write(total)

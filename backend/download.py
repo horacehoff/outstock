@@ -29,7 +29,7 @@ with open("../history", "r") as f:
         print("Please first upload some files!")
 
 print(list(history.keys()))
-#
+
 def download_file(filename):
     if not os.path.exists("temp/"):
         os.makedirs("temp/")
@@ -42,17 +42,3 @@ def download_file(filename):
 
 
 download_file("PIA22418_upscayl_4x_ultrasharp.png-**-1726925343726")
-
-# for x in list(history.keys()):
-# download(history[list(history.keys())[0]][0], fname="fragment0")
-
-
-
-
-
-
-from tkinter.filedialog import asksaveasfile
-def save_file():
-    f = asksaveasfile(initialfile='Untitled.txt',
-                      defaultextension=".txt", filetypes=[("All Files", "*.*"), ("Text Documents", "*.txt")])
-# save_file()
