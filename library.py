@@ -41,10 +41,17 @@ scrollable_frame.bind("<Configure>", update_scrollregion)
 
 # Mouse Wheel scrolling (for both Windows and MacOS/Linux)
 def on_mousewheel(event):
-    if event.delta:  # Windows and Linux systems (event.delta != 0)
-        canvas.yview_scroll(-int(event.delta / 120), "units")
-    else:  # macOS systems (event.delta == 0, event.num is used)
-        canvas.yview_scroll(-1 if event.num == 4 else 1, "units")
+    print(event.delta)
+    if event.delta > 0:
+        canvas.yview_scroll(event.delta, "units")
+    else:
+        print(canvas.yview())
+        if canvas.yview()[0] != 0.0:
+            canvas.yview_scroll(event.delta, "units")
+    # if event.delta:  # Windows and Linux systems (event.delta != 0)
+    #     canvas.yview_scroll(-int(event.delta / 120), "units")
+    # else:  # macOS systems (event.delta == 0, event.num is used)
+    #     canvas.yview_scroll(-1 if event.num == 4 else 1, "units")
 
 # Bind the mouse wheel scroll event
 canvas.bind_all("<MouseWheel>", on_mousewheel)  # For Windows/Linux
