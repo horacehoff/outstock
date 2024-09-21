@@ -27,7 +27,7 @@ text_color_dark = "#2C3E50"
 root.configure(fg_color=secondary_color)
 
 # Set the title and window size
-root.title("OutStocker - Library")
+root.title("OutStocke - Library")
 root.geometry("516x908")
 root.resizable(False, False)
 
