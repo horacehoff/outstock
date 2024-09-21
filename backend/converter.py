@@ -1,4 +1,5 @@
 def file_to_messages(filepath):
+    # https://stackoverflow.com/a/519653
     def chunks(file):
         while True:
             data = file.read(10450000)
