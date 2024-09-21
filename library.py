@@ -2,6 +2,7 @@ from tkinter import *
 import customtkinter as ctk
 from PIL import Image, ImageTk
 import json
+from backend.download import retrieve_downloads
 
 root = ctk.CTk()
 
@@ -12,13 +13,9 @@ root.wm_iconphoto(False, photo)
 label = ctk.CTkLabel(master=root, text="OutStock download page", font=("Arial", 25))
 label.place(relx=0.5, y=15, anchor=CENTER)
 
-with open("./history", "r") as f:
-    try:
-      for i in range(0, len(json.loads(f.read()))):
-        label = ctk.CTkLabel(master=root, text="File "+str(i+1), font=("Arial", 15))
-        label.place(relx=0.5, y=50+(i*50), anchor=CENTER)
-    except:
-        print("Please first upload some files!")
+print(retrieve_downloads())
+
+
 
 root.title("OutStocker - Library")
 root.geometry("500x500")

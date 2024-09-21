@@ -21,7 +21,7 @@ def download(url: str, fname: str, chunk_size=1024, total_files=10):
             bar.update(size)
 
 history = {}
-with open("../history", "r") as f:
+with open("./history", "r") as f:
     try:
         history = json.loads(f.read())
     except:
