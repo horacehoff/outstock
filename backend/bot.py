@@ -31,35 +31,16 @@ class BotClient(discord.Client):
                 print("MESSAGES CALCULATED")
                 i = 0
                 for x in messages:
-                    with open("fragment", "wb") as f:
+                    with open("fragment.ostk", "wb") as f:
                         f.write(messages[0])
                         f.close()
                     i += 1
                     await client.get_channel(1246476145176870924).send(
                         filename + "+-/+" + f"{i}/{len(messages)}" + "+-/+" + str(filesize) + "+-/+          " + str(
-                            int(i * 100 / len(messages))) + "%", file=discord.File("fragment"))
+                            int(i * 100 / len(messages))) + "%", file=discord.File("fragment.ostk"))
                     print(f"{i}/{len(messages)}")
                 await client.get_channel(1246476145176870924).send(f"SENT {filename} TO SERVER!")
-                os.remove("fragment")
-
-    # async def on_message(self, message):
-    #     if message.content == 'sendfile':
-    #         filepath = "../sample.zip"
-    #         filename = os.path.basename(filepath)
-    #         filesize = os.path.getsize(filepath)
-    #         print(f"SENDING {filepath} TO SERVER...")
-    #         await message.channel.send(f"SENDING {filename} -- {str(filesize)} BYTES")
-    #         messages = file_to_messages("../sample.zip")
-    #         i = 0
-    #         for x in messages:
-    #             with open("fragment","wb") as f:
-    #                 f.write(messages[0])
-    #                 f.close()
-    #             i += 1
-    #             await message.channel.send(filename+"+-/+"+f"{i}/{len(messages)}"+"+-/+"+str(filesize)+"+-/+          "+str(int(i*100/len(messages)))+"%", file=discord.File("fragment"))
-    #             print(f"{i}/{len(messages)}")
-    #         await message.channel.send(f"SENT {filename} TO SERVER!")
-    #         os.remove("fragment")
+                os.remove("fragment.ostk")
 
 
 intents = discord.Intents.default()
