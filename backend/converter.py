@@ -23,9 +23,7 @@ def fragments_to_file(folder, filename):
     for x in fragments:
         with open("temp/fragment"+str(x),"rb") as f:
             total += f.read()
-
     with open("test.zip","wb") as f:
         f.write(total)
-    print(fragments)
 
 fragments_to_file("temp/")
