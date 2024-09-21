@@ -28,6 +28,7 @@ with open("./history", "r") as f:
         print("Please first upload some files!")
 
 def download_file(filename):
+    print(f"DOWNLOADING {filename}...")
     if not os.path.exists("temp/"):
         os.makedirs("temp/")
     i = 0
@@ -36,6 +37,7 @@ def download_file(filename):
         i += 1
     fragments_to_file("temp/", filename.split("-**-")[0])
     rmtree("temp/")
+    print(f"SUCCESSFULLY DOWNLOADED {filename}!")
 
 
 def retrieve_downloads():

@@ -21,6 +21,7 @@ def upload_file(filepath):
 
     history[str(filename + "-**-" + str(timestamp))] = []
 
+    print(f"SENDING {filename}...")
     print("COMPUTING MESSAGES...")
     messages = file_to_messages(filepath)
     print("MESSAGES CALCULATED")
@@ -46,3 +47,4 @@ def upload_file(filepath):
     with open("history", "w") as f:
         f.write(json.dumps(history))
     os.remove("fragment.ostk")
+    print(f"SENT {filename} SUCCESSFULLY!")
