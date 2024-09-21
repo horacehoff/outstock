@@ -1,13 +1,11 @@
-from fileinput import filename
 from tkinter import *
 import customtkinter as ctk
 from PIL import Image, ImageTk
-import json
-from backend.download import retrieve_downloads
+from backend.download import retrieve_downloads, download_file
 import datetime
 
 def downloadFile(filename, timestamp):
-    print(filename, timestamp)
+    download_file(f"{filename}-**-{timestamp}")
 
 root = ctk.CTk()
 
@@ -33,7 +31,7 @@ for index,i in enumerate(retrieve_downloads()):
     timeStampLabel.place(x=150, y=50 + index * 30, anchor=W)
 
     downloadButton = ctk.CTkButton(master=root, width=120, height=32, border_width=0, corner_radius=8, text="Download",
-                                   command=lambda filename=name, creationDate=i[1]: downloadFile(filename, creationDate))
+                                   command=lambda filename=i[0], creationDate=i[1]: downloadFile(filename, creationDate))
     downloadButton.place(x=400, y=50 + index * 30, anchor=E)
 
 
