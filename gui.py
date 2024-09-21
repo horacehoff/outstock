@@ -14,9 +14,9 @@ def fileSel():
 root = Tk()
 root.wm_title("Outstock")
 
-# ico = Image.open('guiAssets/outstock.ico')
-# photo = ImageTk.PhotoImage(ico)
-# root.wm_iconphoto(False, photo)
+ico = Image.open('guiAssets/outstock.ico')
+photo = ImageTk.PhotoImage(ico)
+root.wm_iconphoto(False, photo)
 
 
 label = Label(root, text="Hello World")
