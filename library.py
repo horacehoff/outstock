@@ -13,28 +13,30 @@ root = ctk.CTk()
 ico = Image.open('guiAssets/outstock.ico')
 photo = ImageTk.PhotoImage(ico)
 root.wm_iconphoto(False, photo)
-root.configure(fg_color="white")
 
-primary_color = "#2E86C1"
-secondary_color = "white"
-button_color = "#5DADE2"
-button_hover_color = "#3498DB"
-scrollbar_color = "#AEB6BF"
+
+primary_color = "#F39C12"  # Burnt orange
+secondary_color = "#2C3E50"  # Deep cool grey
+button_color = "#1ABC9C"  # Teal
+button_hover_color = "#16A085"  # Darker teal
 font_main = ("Arial", 14)
 font_header = ("Arial", 25, "bold")
+text_color_light = "#ECF0F1"  # Light grey for text
+text_color_dark = "#2C3E50"
 
+root.configure(fg_color=secondary_color)
 
 # Set the title and window size
 root.title("OutStocker - Library")
-root.geometry("500x500")
-#root.resizable(False, False)
+root.geometry("516x908")
+root.resizable(False, False)
 
 # Create a canvas to hold the scrollable frame
 canvas = Canvas(root, bg=secondary_color, highlightthickness=0)
 canvas.pack(side=LEFT, fill=BOTH, expand=True, padx=10, pady=10)
 
 # Create a scrollbar for the canvas
-scrollbar = Scrollbar(root, orient=VERTICAL, command=canvas.yview, bg=scrollbar_color, troughcolor=scrollbar_color)
+scrollbar = Scrollbar(root, orient=VERTICAL, command=canvas.yview, bg=secondary_color, troughcolor=secondary_color)
 scrollbar.pack(side=RIGHT, fill=Y)
 
 # Configure canvas to work with the scrollbar
@@ -68,7 +70,7 @@ canvas.bind_all("<Button-4>", on_mousewheel)  # For macOS
 canvas.bind_all("<Button-5>", on_mousewheel)  # For macOS
 
 # Header label (use grid instead of pack)
-header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock download page", font=font_header, text_color=primary_color)
+header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock download page", font=font_header, text_color="#D35400")
 header_label.grid(row=0, column=0, columnspan=3, pady=20, padx=10)  # Add to grid with a colspan for centering
 
 # Add the list of downloads with scrolling capability
