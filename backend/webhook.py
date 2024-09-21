@@ -1,10 +1,14 @@
-from discord_webhook import DiscordWebhook
+from discord_webhook import DiscordWebhook, DiscordEmbed
 from backend.converter import file_to_messages
 import os
+import requests
+import time
 
 
 # webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1286979733917143110/9nI0lWs7A0klF9PLkTvs3GNLaAKenFLS0F6PgDfOx-gsdV_Pt4xxV_b3bx3faQZ6Vxl2", content="Webhook Message", rate_limit_retry=True)
-
+filepath = "../sample.zip"
+filename = os.path.basename(filepath)
+filesize = os.path.getsize(filepath)
 
 print("COMPUTING MESSAGES...")
 messages = file_to_messages("../sample.zip")
@@ -13,7 +17,9 @@ i = 0
 for x in messages[::2]:
     webhook = DiscordWebhook(
         url="https://discord.com/api/webhooks/1286979733917143110/9nI0lWs7A0klF9PLkTvs3GNLaAKenFLS0F6PgDfOx-gsdV_Pt4xxV_b3bx3faQZ6Vxl2",
-        content="Webhook Message", rate_limit_retry=True)
+        content=filename+"&&"+str(int(time.time())), rate_limit_retry=True, wait=True)
+    embed = DiscordEmbed(title=filename+f" -- Fragments {i}&{i+1}", color="FF0000")
+    webhook.add_embed(embed)
 
     for _ in range(2):
         with open("fragment.ostk", "wb") as f:
@@ -26,6 +32,7 @@ for x in messages[::2]:
 
 
     response = webhook.execute()
+    print(response.json()["attachments"])
 
 
 os.remove("fragment.ostk")
