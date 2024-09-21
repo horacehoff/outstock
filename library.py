@@ -56,7 +56,7 @@ header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock download pag
 header_label.grid(row=0, column=0, columnspan=3, pady=10)  # Add to grid with a colspan for centering
 
 # Add the list of downloads with scrolling capability
-for i in range(70)
+for j in range(70):
     for index, i in enumerate(retrieve_downloads()):
         # Truncate the filename if it exceeds 15 characters
         if len(i[0]) >= 15:
