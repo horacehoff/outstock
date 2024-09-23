@@ -60,6 +60,3 @@ Please adhere to this project's `code of conduct`.
 # Special thanks
 
 We would like to thank Dev Detour and in particular his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which marked the start of this project.
-
-# TechStack
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
