@@ -21,19 +21,13 @@ GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
 `pip install -r requirements.txt`
 
 ## Screenshots
-
 ![App Screenshot](https://github.com/horacehoff/outstock/blob/2ce8db1b02ac78935d1d86e58f688470472b8e29/readmeAssets/ScreenshotOfAllThePages.png)
-## 🛠 Skills
-Python, Discord WebHooks (Python)
-
 
 ## Support
-
 For support, please oppen an issue on our GitHub page.
 
 
 ## Contributing
-
 Contributions are always welcome!
 
 See `contributing.md` for ways to get started.
@@ -49,4 +43,4 @@ Please adhere to this project's `code of conduct`.
 
 # Special thanks
 
-We would like to thank Dev Detour and in particular his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which marked the start of this project.
+We would like to thank Dev Detour and in particular his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which inspired us to create this.
