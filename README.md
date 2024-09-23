@@ -13,7 +13,6 @@ All of the files are stored on the discord server you set the webhook in, and th
 ```
 
 ## Credits
-
 GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
 
 
@@ -40,7 +39,10 @@ Please adhere to this project's `code of conduct`.
 + Please use the "HELP ?" button before using the app.
 ```
 
-
-# Special thanks
+## Special thanks
 
 We would like to thank Dev Detour and in particular his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which inspired us to create this.
+
+## License
+[MIT License](LICENSE)\
+Horace Hoff 2024
