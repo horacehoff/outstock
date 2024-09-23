@@ -24,7 +24,7 @@ GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
 ![App Screenshot](https://github.com/horacehoff/outstock/blob/2ce8db1b02ac78935d1d86e58f688470472b8e29/readmeAssets/ScreenshotOfAllThePages.png)
 
 ## Support
-For support, please oppen an issue on our GitHub page.
+For support, please open an issue on our GitHub page.
 
 
 ## Contributing
