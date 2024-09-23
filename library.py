@@ -8,73 +8,73 @@ from backend.download import retrieve_downloads
 def downloadFile(filename, timestamp):
     print(filename, timestamp)
 
-root = ctk.CTk()
+def library():
+    libraryPage = Toplevel()
 
-ico = Image.open('guiAssets/outstock.ico')
-photo = ImageTk.PhotoImage(ico)
-root.wm_iconphoto(False, photo)
+    ico = Image.open('guiAssets/outstock.ico')
+    photo = ImageTk.PhotoImage(ico)
+    libraryPage.wm_iconphoto(False, photo)
 
 
-primary_color = "#F39C12"  # Burnt orange
-secondary_color = "#2C3E50"  # Deep cool grey
-button_color = "#1ABC9C"  # Teal
-button_hover_color = "#16A085"  # Darker teal
-font_main = ("Arial", 14)
-font_header = ("Arial", 25, "bold")
-text_color_light = "#ECF0F1"  # Light grey for text
-text_color_dark = "#2C3E50"
+    primary_color = "#F39C12"  # Burnt orange
+    secondary_color = "#2C3E50"  # Deep cool grey
+    button_color = "#1ABC9C"  # Teal
+    button_hover_color = "#16A085"  # Darker teal
+    font_main = ("Arial", 14)
+    font_header = ("Arial", 25, "bold")
+    text_color_light = "#ECF0F1"  # Light grey for text
+    text_color_dark = "#2C3E50"
 
-root.configure(fg_color=secondary_color)
+    libraryPage.config(bg=secondary_color)
 
-# Set the title and window size
-root.title("OutStocke - Library")
-root.geometry("516x908")
-root.resizable(False, False)
+    # Set the title and window size
+    libraryPage.title("OutStock - Library")
+    libraryPage.geometry("516x908")
+    libraryPage.resizable(False, False)
 
-# Create a canvas to hold the scrollable frame
-canvas = Canvas(root, bg=secondary_color, highlightthickness=0)
-canvas.pack(side=LEFT, fill=BOTH, expand=True, padx=10, pady=10)
+    # Create a canvas to hold the scrollable frame
+    canvas = Canvas(libraryPage, bg=secondary_color, highlightthickness=0)
+    canvas.pack(side=LEFT, fill=BOTH, expand=True, padx=10, pady=10)
 
-# Create a scrollbar for the canvas
-scrollbar = Scrollbar(root, orient=VERTICAL, command=canvas.yview, bg=secondary_color, troughcolor=secondary_color)
-scrollbar.pack(side=RIGHT, fill=Y)
+    # Create a scrollbar for the canvas
+    scrollbar = Scrollbar(libraryPage, orient=VERTICAL, command=canvas.yview, bg=secondary_color, troughcolor=secondary_color)
+    scrollbar.pack(side=RIGHT, fill=Y)
 
-# Configure canvas to work with the scrollbar
-canvas.configure(yscrollcommand=scrollbar.set)
+    # Configure canvas to work with the scrollbar
+    canvas.configure(yscrollcommand=scrollbar.set)
 
-# Create a frame to contain the scrollable content, and place it inside the canvas
-scrollable_frame = ctk.CTkFrame(master=canvas, fg_color=secondary_color, corner_radius=15)
+    # Create a frame to contain the scrollable content, and place it inside the canvas
+    scrollable_frame = ctk.CTkFrame(master=canvas, fg_color=secondary_color, corner_radius=15)
 
-# Update scrollable region to include the frame and its contents
-def update_scrollregion(event):
-    canvas.configure(scrollregion=canvas.bbox("all"))
+    # Update scrollable region to include the frame and its contents
+    def update_scrollregion(event):
+        canvas.configure(scrollregion=canvas.bbox("all"))
 
-canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-scrollable_frame.bind("<Configure>", update_scrollregion)
+    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+    scrollable_frame.bind("<Configure>", update_scrollregion)
 
-# Mouse Wheel scrolling (for both Windows and MacOS/Linux)
-def on_mousewheel(event):
-    if event.delta > 0:
-        canvas.yview_scroll(event.delta, "units")
-    else:
-        if canvas.yview()[0] != 0.0:
+    # Mouse Wheel scrolling (for both Windows and MacOS/Linux)
+    def on_mousewheel(event):
+        if event.delta > 0:
             canvas.yview_scroll(event.delta, "units")
-    # if event.delta:  # Windows and Linux systems (event.delta != 0)
-    #     canvas.yview_scroll(-int(event.delta / 120), "units")
-    # else:  # macOS systems (event.delta == 0, event.num is used)
-    #     canvas.yview_scroll(-1 if event.num == 4 else 1, "units")
+        else:
+            if canvas.yview()[0] != 0.0:
+                canvas.yview_scroll(event.delta, "units")
+        # if event.delta:  # Windows and Linux systems (event.delta != 0)
+        #     canvas.yview_scroll(-int(event.delta / 120), "units")
+        # else:  # macOS systems (event.delta == 0, event.num is used)
+        #     canvas.yview_scroll(-1 if event.num == 4 else 1, "units")
 
-# Bind the mouse wheel scroll event
-canvas.bind_all("<MouseWheel>", on_mousewheel)  # For Windows/Linux
-canvas.bind_all("<Button-4>", on_mousewheel)  # For macOS
-canvas.bind_all("<Button-5>", on_mousewheel)  # For macOS
+    # Bind the mouse wheel scroll event
+    canvas.bind_all("<MouseWheel>", on_mousewheel)  # For Windows/Linux
+    canvas.bind_all("<Button-4>", on_mousewheel)  # For macOS
+    canvas.bind_all("<Button-5>", on_mousewheel)  # For macOS
 
-# Header label (use grid instead of pack)
-header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock download page", font=font_header, text_color="#D35400")
-header_label.grid(row=0, column=0, columnspan=3, pady=20, padx=10)  # Add to grid with a colspan for centering
+    # Header label (use grid instead of pack)
+    header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock download page", font=font_header, text_color="#D35400")
+    header_label.grid(row=0, column=0, columnspan=3, pady=20, padx=10)  # Add to grid with a colspan for centering
 
-# Add the list of downloads with scrolling capability
-for j in range(70):
+    # Add the list of downloads with scrolling capability
     for index, i in enumerate(retrieve_downloads()):
         # Truncate the filename if it exceeds 15 characters
         if len(i[0]) >= 18:
@@ -91,7 +91,7 @@ for j in range(70):
             font=font_main,
             text_color=primary_color,
             fg_color="transparent")
-        label.grid(row=index + j + 1, column=0, padx=20, pady=10, sticky=W)  # Shift rows by 1 because of the header
+        label.grid(row=index + 1, column=0, padx=20, pady=10, sticky=W)  # Shift rows by 1 because of the header
 
         # Create the timestamp label
         timeStampLabel = ctk.CTkLabel(
@@ -101,7 +101,7 @@ for j in range(70):
             text_color=primary_color,
             fg_color="transparent"
         )
-        timeStampLabel.grid(row=index + j + 1, column=1, padx=10, pady=10, sticky=W)
+        timeStampLabel.grid(row=index + 1, column=1, padx=10, pady=10, sticky=W)
 
         # Create the download button
         downloadButton = ctk.CTkButton(
@@ -116,9 +116,7 @@ for j in range(70):
             hover_color=button_hover_color,
             command=lambda filename=name, creationDate=i[1]: downloadFile(filename, creationDate)
         )
-        downloadButton.grid(row=index + j + 1, column=2, padx=20, pady=10, sticky=E)
+        downloadButton.grid(row=index + 1, column=2, padx=20, pady=10, sticky=E)
 
-# Final configuration to enable scrolling
-canvas.configure(scrollregion=canvas.bbox("all"))
-
-root.mainloop()
+    # Final configuration to enable scrolling
+    canvas.configure(scrollregion=canvas.bbox("all"))
