@@ -17,12 +17,10 @@ All of the files are stored on the discord server you set the webhook in, and th
 GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
 
 
-## Tech Stack
-
-**Client:** Python 3.x
-
-**Server:** Discords servers
-
+## Installation
+´
+pip install -r requirements.txt
+´
 
 ## Screenshots
 
