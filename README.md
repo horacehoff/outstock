@@ -17,7 +17,8 @@ GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
 
 
 ## Installation
-`pip install -r requirements.txt`
+- `pip install -r requirements.txt`
+- Modify [webhook.py](./backend/webhook.py) and modify the webhook url
 
 ## Screenshots
 ![App Screenshot](https://github.com/horacehoff/outstock/blob/2ce8db1b02ac78935d1d86e58f688470472b8e29/readmeAssets/ScreenshotOfAllThePages.png)
