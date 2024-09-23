@@ -28,7 +28,7 @@ def upload_file(filepath):
     i = 0
     for x in messages:
         webhook = DiscordWebhook(
-            url="https://discord.com/api/webhooks/1286979733917143110/9nI0lWs7A0klF9PLkTvs3GNLaAKenFLS0F6PgDfOx-gsdV_Pt4xxV_b3bx3faQZ6Vxl2",
+            url="INSERT YOUR WEBHOOK URL HERE",
             content="", rate_limit_retry=True, wait=True)
         embed = DiscordEmbed(title=filename + f" -- Fragments {i + 1}/{len(messages)}", color="FF0000")
         webhook.add_embed(embed)
