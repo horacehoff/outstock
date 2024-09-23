@@ -34,14 +34,12 @@ All of the files are stored between your own prive and personal discord server a
 
 ![App Screenshot](https://github.com/horacehoff/outstock/blob/2ce8db1b02ac78935d1d86e58f688470472b8e29/readmeAssets/ScreenshotOfAllThePages.png)
 ## 🛠 Skills
-Python, Discord WeebHooks (Python)
+Python, Discord WebHooks (Python)
 
 
 ## Support
 
 For support, please oppen an issue on our GitHub page.
-
-As this is a fully open source and small team project we might no respond for a small time but our team will try our best to answer all of your problems !
 
 
 ## Contributing
