@@ -50,11 +50,6 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-
-
-
-![Logo]([https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZTJHPUL5JVVMYP5KOZXRHMIQ](https://github.com/horacehoff/outstock/blob/342dc274e924c9e40c515d74e58688a633a331e1/guiAssets/outstock.ico))
-
 ## Documentation
 
 ```diff
@@ -64,7 +59,7 @@ Please adhere to this project's `code of conduct`.
 
 # Special thanks
 
-We would like to specially thank Dev Detour and in particular his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which marked the start of this project.
+We would like to thank Dev Detour and in particular his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which marked the start of this project.
 
 # TechStack
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
