@@ -12,10 +12,6 @@ All of the files are stored on the discord server you set the webhook in, and th
 - won't be able to be retrieved.
 ```
 
-## Credits
-GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
-
-
 ## Installation
 - `pip install -r requirements.txt`
 - Modify [webhook.py](./backend/webhook.py) and modify the webhook URL
