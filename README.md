@@ -43,3 +43,6 @@ We would like to thank Dev Detour and in particular, his [Stealing Storage from 
 ## License
 [MIT License](LICENSE)\
 Horace Hoff & Ulysse Coispellier 2024
+
+
+![Logo](https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZ37KYOLHKYQR2UDNGZXRURCQ)
