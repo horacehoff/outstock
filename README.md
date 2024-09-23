@@ -1,9 +1,9 @@
 
 # OutStock
 
-This projects allows you to save your files on discords servers and make you able to retreive them using a personal weekhook.
+This projects allows you to save your files, no matter their size, on discords servers and retrieve them using a webhook on your server, as such everything runs locally.
 
-All of the files are stored between your own prive and personal discord server and the links to download them will be in the "history" file stored locally on your machine but can be shared to allow access to others to your files.
+All of the files are stored on the discord server you set the webhook in, and the "history" file tracks the files, as such you can share it with anyone to allow them to download the files you uploaded.
 
 ```diff
 - BEWARE !!!
