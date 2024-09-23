@@ -12,7 +12,7 @@ All of the files are stored between your own prive and personal discord server a
 - able to be retreived.
 
 
-! Please do not use this project for commercial use although you may use our code in any project of yours as long
+! Please do not use this project for commercial use, although you may use our code in any project of yours as long
 ! as you link to the OutStockContributors.md file in the project. 😀
 
 ```
