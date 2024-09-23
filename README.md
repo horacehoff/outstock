@@ -8,7 +8,8 @@ All of the files are stored between your own prive and personal discord server a
 ```diff
 - BEWARE !!!
 
-- Do not delete your "history" or the links to your files might be permanetly lost and wont be able to be retreived.
+- Do not delete your "history" or the links to your files might be permanetly lost and wont be
+- able to be retreived.
 
 
 ! Please do not use this project for commercial use although you may use our code in any project of yours as long
