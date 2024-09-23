@@ -18,9 +18,9 @@ GUI by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
 
 
 ## Installation
-´
+ˋ
 pip install -r requirements.txt
-´
+ˋ
 
 ## Screenshots
 
