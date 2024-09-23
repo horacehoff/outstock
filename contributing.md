@@ -1,6 +1,6 @@
 # Contributing
 
-Everyone is welcome to open a pull request and it will be monitored by us. If in any case the pull request tries to degrade the project it won't be accepted and the user will be banned to create a pull request ever again.
+Everyone is welcome to open a pull request!
 
 # Code of Conduct
 
