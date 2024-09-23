@@ -13,7 +13,7 @@ All of the files are stored on the discord server you set the webhook in, and th
 ```
 
 ## Credits
-GUI and link to BackEnd by [@ulyssecoispellier](https://github.com/ulyssecoispellier)
+GUI and link to BackEnd by [@ulyssecoispellier](https://github.com/ulyssecoispellier)\
 BackEnd and link to UI by [@horacehoff](https://github.com/horacehoff)
 
 
