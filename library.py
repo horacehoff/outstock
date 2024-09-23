@@ -1,4 +1,3 @@
-from shutil import which
 from tkinter import *
 import customtkinter as ctk
 from PIL import Image, ImageTk
@@ -22,8 +21,6 @@ def library():
     button_hover_color = "#16A085"  # Darker teal
     font_main = ("Arial", 14)
     font_header = ("Arial", 25, "bold")
-    text_color_light = "#ECF0F1"  # Light grey for text
-    text_color_dark = "#2C3E50"
 
     libraryPage.config(bg=secondary_color)
 
@@ -53,7 +50,7 @@ def library():
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
     scrollable_frame.bind("<Configure>", update_scrollregion)
 
-    # Mouse Wheel scrolling (for both Windows and MacOS/Linux)
+    # Mouse Wheel scrolling (for both Windows and macOS/Linux)
     def on_mousewheel(event):
         if event.delta > 0:
             canvas.yview_scroll(event.delta, "units")

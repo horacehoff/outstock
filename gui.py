@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import filedialog
-from tkinter import ttk
 import customtkinter as ctk
 from PIL import Image, ImageTk
 from library import library
@@ -8,49 +7,49 @@ from library import library
 from backend.webhook import upload_file
 
 
-def fileSel():
+def file_sel():
     file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
     if file_path:
         upload_file(file_path)
         fileSelector.config(text=f"Selected File: {file_path}")
         return file_path
 
-def help():
-    help = Toplevel()
-    help.title("Help")
-    help.geometry("500x350")
-    help.resizable(False, False)
-    help.config(bg="white")
+def help_page_launch():
+    help_page = Toplevel()
+    help_page.title("Help")
+    help_page.geometry("500x350")
+    help_page.resizable(False, False)
+    help_page.config(bg="white")
 
-    helpLabel = Label(help, text="Welcome to OutStock", font=("Arial", 18), bg="white")
-    helpLabel.pack()
+    help_label = Label(help_page, text="Welcome to OutStock", font=("Arial", 18), bg="white")
+    help_label.pack()
 
-    helpLabel2 = Label(help, text="", font=("Arial", 12), bg="white")
-    helpLabel2.pack()
+    help_label2 = Label(help_page, text="", font=("Arial", 12), bg="white")
+    help_label2.pack()
 
-    helpLabel3 = Label(help, text="This tool is used to save your files on the discord servers.", font=("Arial", 12), bg="white")
-    helpLabel3.pack()
+    help_label3 = Label(help_page, text="This tool is used to save your files on the discord servers.", font=("Arial", 12), bg="white")
+    help_label3.pack()
 
-    helpLabel4 = Label(help, text="Our technology takes your file, breaks it down in sendable packets and then", font=("Arial", 12), bg="white")
-    helpLabel4.pack()
+    help_label4 = Label(help_page, text="Our technology takes your file, breaks it down in sendable packets and then", font=("Arial", 12), bg="white")
+    help_label4.pack()
 
-    helpLabel5 = Label(help, text="refragments them when needed", font=("Arial", 12), bg="white")
-    helpLabel5.pack()
+    help_label5 = Label(help_page, text="refragments them when needed", font=("Arial", 12), bg="white")
+    help_label5.pack()
 
-    helpLabel6 = Label(help, text="", font=("Arial", 12), bg="white")
-    helpLabel6.pack()
+    help_label6 = Label(help_page, text="", font=("Arial", 12), bg="white")
+    help_label6.pack()
 
-    helpLabel7 = Label(help, text="To use our app select a file with the button on the main page and wait to get the message:", font=("Arial", 12), bg="white")
-    helpLabel7.pack()
+    help_label7 = Label(help_page, text="To use our app select a file with the button on the main page and wait to get the message:", font=("Arial", 12), bg="white")
+    help_label7.pack()
 
-    helpLabel8 = Label(help, text="\"SUCCESSFULLY DOWNLOADED {filename}!\"", font=("Arial", 12), bg="white")
-    helpLabel8.pack()
+    help_label8 = Label(help_page, text="\"SUCCESSFULLY DOWNLOADED {filename}!\"", font=("Arial", 12), bg="white")
+    help_label8.pack()
 
-    helpLabel9 = Label(help, text="\nTo retrieve the file go in your library click download and wait to get the message:", font=("Arial", 12), bg="white")
-    helpLabel9.pack()
+    help_label9 = Label(help_page, text="\nTo retrieve the file go in your library click download and wait to get the message:", font=("Arial", 12), bg="white")
+    help_label9.pack()
 
-    helpLabel10 = Label(help, text="\"SENT {filename} SUCCESSFULLY!\"", font=("Arial", 12), bg="white")
-    helpLabel10.pack()
+    help_label10 = Label(help_page, text="\"SENT {filename} SUCCESSFULLY!\"", font=("Arial", 12), bg="white")
+    help_label10.pack()
 
 
 
@@ -69,13 +68,13 @@ header_label = ctk.CTkLabel(master=root, text="OutStock export page", font=("Ari
                             text_color="#D35400")
 header_label.place(relx=0.5, y=15, anchor=CENTER)  # Add to grid with a colspan for centering
 
-help = ctk.CTkButton(master=root, width=50, height=15, border_width=0, corner_radius=8, text="Help ?", command=help, fg_color="#1ABC9C", hover_color="#F39C12")
-help.place(x=5, y=5, anchor=NW)
+helpButton = ctk.CTkButton(master=root, width=50, height=15, border_width=0, corner_radius=8, text="Help ?", command=help_page_launch, fg_color="#1ABC9C", hover_color="#F39C12")
+helpButton.place(x=5, y=5, anchor=NW)
 
 libraryPage = ctk.CTkButton(master=root, width=120, height=32, border_width=0, corner_radius=8, text="Go to library page", command=library, fg_color="#1ABC9C", hover_color="#F39C12")
 libraryPage.place(relx=0.5, y=300, anchor=CENTER)
 
-fileSelector = ctk.CTkButton(master=root, width=400, height=200, border_width=0, corner_radius=8, text="Select File", command=fileSel, fg_color="#1ABC9C", hover_color="#F39C12", font=("Arial", 70, "bold"))
+fileSelector = ctk.CTkButton(master=root, width=400, height=200, border_width=0, corner_radius=8, text="Select File", command=file_sel, fg_color="#1ABC9C", hover_color="#F39C12", font=("Arial", 70, "bold"))
 fileSelector.place(relx=0.5, y=150, anchor=CENTER)
 
 root.title("OutStocker - Sending")

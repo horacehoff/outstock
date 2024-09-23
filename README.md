@@ -3,7 +3,7 @@
 
 This project allows you to save your files, no matter their size, on discords servers and retrieve them using a webhook on your server, as such everything runs locally.
 
-All of the files are stored on the discord server you set the webhook in, and the "history" file tracks the files, as such you can share it with anyone to allow them to download the files you uploaded.
+All the files are stored on the discord server you set the webhook in, and the "history" file tracks the files, as such you can share it with anyone to allow them to download the files you uploaded.
 
 ```diff
 - BEWARE !!!
