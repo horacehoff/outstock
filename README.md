@@ -1,5 +1,4 @@
-
-# OutStock
+# OutStock <img src="https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZ37KYOLHKYQR2UDNGZXRURCQ" width="25">
 
 This project allows you to save your files, no matter their size, on discords servers and retrieve them using a webhook on your server, as such everything runs locally.
 
@@ -43,6 +42,3 @@ We would like to thank Dev Detour and in particular, his [Stealing Storage from 
 ## License
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/2880px-MIT_logo.svg.png" width="20"> [MIT License](LICENSE) \
 Horace Hoff & Ulysse Coispellier 2024
-
-
-![Logo](https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZ37KYOLHKYQR2UDNGZXRURCQ)
