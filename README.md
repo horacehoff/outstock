@@ -8,7 +8,7 @@ All of the files are stored on the discord server you set the webhook in, and th
 ```diff
 - BEWARE !!!
 
-- Do not delete your "history" or the links to your files might be permanetly lost and wont be
+- Do not delete the "history" file or the links to your files might be permanetly lost and wont be
 - able to be retreived.
 ```
 
