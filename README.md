@@ -55,7 +55,7 @@ Please adhere to this project's `code of conduct`.
 
 
 
-![Logo](https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZTJHPUL5JVVMYP5KOZXRHMIQ)
+![Logo]([https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZTJHPUL5JVVMYP5KOZXRHMIQ](https://github.com/horacehoff/outstock/blob/342dc274e924c9e40c515d74e58688a633a331e1/guiAssets/outstock.ico))
 
 ## Documentation
 
