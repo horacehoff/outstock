@@ -46,4 +46,4 @@ We would like to thank Dev Detour and in particular his [Stealing Storage from D
 
 ## License
 [MIT License](LICENSE)\
-Horace Hoff 2024
+Horace Hoff & Ulysse Coispellier 2024
