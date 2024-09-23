@@ -41,7 +41,7 @@ Please adhere to this project's `code of conduct`.
 We would like to thank Dev Detour and in particular, his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which inspired us to create this.
 
 ## License
-[MIT License](LICENSE)\
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/2880px-MIT_logo.svg.png" width="20"> [MIT License](LICENSE) \
 Horace Hoff & Ulysse Coispellier 2024
 
 
