@@ -2,10 +2,10 @@ from tkinter import *
 import customtkinter as ctk
 from PIL import Image, ImageTk
 import datetime
-from backend.download import retrieve_downloads
+from backend.download import retrieve_downloads, download_file
 
 def downloadFile(filename, timestamp):
-    print(filename, timestamp)
+    download_file(filename+"-**-"+timestamp)
 
 def library():
     libraryPage = Toplevel()
@@ -111,7 +111,7 @@ def library():
             font=font_main,
             fg_color=button_color,
             hover_color=button_hover_color,
-            command=lambda filename=name, creationDate=i[1]: downloadFile(filename, creationDate)
+            command=lambda filename=i[0], creationDate=i[1]: downloadFile(filename, creationDate)
         )
         downloadButton.grid(row=index + 1, column=2, padx=20, pady=10, sticky=E)
 
