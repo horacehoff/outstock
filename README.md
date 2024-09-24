@@ -1,4 +1,4 @@
-# OutStock <img src="https://raw.githubusercontent.com/horacehoff/outstock/refs/heads/main/guiAssets/outstock.ico?token=GHSAT0AAAAAACVTRRKZ37KYOLHKYQR2UDNGZXRURCQ" width="25">
+# OutStock <img src="https://github.com/horacehoff/outstock/blob/7e1b742f9223e2a245d03aab42a1611d5f59023f/guiAssets/outstock.ico" width="25">
 
 This project allows you to save your files, no matter their size, on discords servers and retrieve them using a webhook on your server, as such everything runs locally.
 
