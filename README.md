@@ -16,7 +16,7 @@ All the files are stored on the discord server you set the webhook in, and the "
 - Modify [webhook.py](./backend/webhook.py) and modify the webhook URL
 
 ## Screenshots
-![App Screenshot](https://github.com/horacehoff/outstock/blob/7e1b742f9223e2a245d03aab42a1611d5f59023f/guiAssets/outstock.ico)
+![App Screenshot](https://github.com/horacehoff/outstock/blob/e0b6421a413c1525ef201e57827a101566c74064/readmeAssets/ScreenshotOfAllThePages.png)
 
 ## Support
 For support, please open an issue on our GitHub page.
