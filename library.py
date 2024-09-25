@@ -5,9 +5,8 @@ import datetime
 from backend.download import retrieve_downloads, download_file
 from threading import Thread
 
-def download_file(filename, timestamp):
-    thread = Thread(target=lambda lambda_filename=filename, lambda_timestamp=timestamp: download_file(lambda_filename+"-**-"+lambda_timestamp), daemon=False)
-    thread.start()
+def download_file_start(filename, timestamp):
+    download_file(filename + "-**-" + timestamp)
 
 def library():
     library_page = Toplevel()
@@ -113,7 +112,7 @@ def library():
             font=font_main,
             fg_color=button_color,
             hover_color=button_hover_color,
-            command=lambda filename=i[0], creation_date=i[1]: download_file(filename, creation_date)
+            command=lambda filename=i[0], creation_date=i[1]: download_file_start(filename, creation_date)
         )
         download_button.grid(row=index + 1, column=2, padx=20, pady=10, sticky=E)
 
