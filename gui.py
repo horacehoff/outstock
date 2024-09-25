@@ -55,7 +55,6 @@ def help_page_launch():
     help_label10.pack()
 
 
-
 root = ctk.CTk()
 
 ico = Image.open('guiAssets/outstock.ico')
@@ -82,7 +81,6 @@ fileSelector.place(relx=0.5, y=150, anchor=CENTER)
 
 root.title("OutStocker - Sending")
 root.geometry("500x350")
-
 
 
 
