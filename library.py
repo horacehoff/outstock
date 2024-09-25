@@ -5,16 +5,16 @@ import datetime
 from backend.download import retrieve_downloads, download_file
 from threading import Thread
 
-def downloadFile(filename, timestamp):
+def download_file(filename, timestamp):
     thread = Thread(target=lambda lambda_filename=filename, lambda_timestamp=timestamp: download_file(lambda_filename+"-**-"+lambda_timestamp), daemon=False)
     thread.start()
 
 def library():
-    libraryPage = Toplevel()
+    library_page = Toplevel()
 
     ico = Image.open('guiAssets/outstock.ico')
     photo = ImageTk.PhotoImage(ico)
-    libraryPage.wm_iconphoto(False, photo)
+    library_page.wm_iconphoto(False, photo)
 
 
     primary_color = "#F39C12"  # Burnt orange
@@ -24,19 +24,19 @@ def library():
     font_main = ("Arial", 14)
     font_header = ("Arial", 25, "bold")
 
-    libraryPage.config(bg=secondary_color)
+    library_page.config(bg=secondary_color)
 
     # Set the title and window size
-    libraryPage.title("OutStock - Library")
-    libraryPage.geometry("516x908")
-    libraryPage.resizable(False, False)
+    library_page.title("OutStock - Library")
+    library_page.geometry("516x908")
+    library_page.resizable(False, False)
 
     # Create a canvas to hold the scrollable frame
-    canvas = Canvas(libraryPage, bg=secondary_color, highlightthickness=0)
+    canvas = Canvas(library_page, bg=secondary_color, highlightthickness=0)
     canvas.pack(side=LEFT, fill=BOTH, expand=True, padx=10, pady=10)
 
     # Create a scrollbar for the canvas
-    scrollbar = Scrollbar(libraryPage, orient=VERTICAL, command=canvas.yview, bg=secondary_color, troughcolor=secondary_color)
+    scrollbar = Scrollbar(library_page, orient=VERTICAL, command=canvas.yview, bg=secondary_color, troughcolor=secondary_color)
     scrollbar.pack(side=RIGHT, fill=Y)
 
     # Configure canvas to work with the scrollbar
@@ -82,7 +82,7 @@ def library():
             name = i[0]
 
         # Convert timestamp to human-readable format
-        timeStamp = datetime.datetime.fromtimestamp(int(i[1]) / 1000).strftime('%c')
+        time_stamp = datetime.datetime.fromtimestamp(int(i[1]) / 1000).strftime('%c')
 
         # Create the filename label
         label = ctk.CTkLabel(master=scrollable_frame,
@@ -93,17 +93,17 @@ def library():
         label.grid(row=index + 1, column=0, padx=20, pady=10, sticky=W)  # Shift rows by 1 because of the header
 
         # Create the timestamp label
-        timeStampLabel = ctk.CTkLabel(
+        time_stamp_label = ctk.CTkLabel(
             master=scrollable_frame,
-            text=timeStamp,
+            text=time_stamp,
             font=("Arial", 13),
             text_color=primary_color,
             fg_color="transparent"
         )
-        timeStampLabel.grid(row=index + 1, column=1, padx=10, pady=10, sticky=W)
+        time_stamp_label.grid(row=index + 1, column=1, padx=10, pady=10, sticky=W)
 
         # Create the download button
-        downloadButton = ctk.CTkButton(
+        download_button = ctk.CTkButton(
             master=scrollable_frame,
             width=120,
             height=35,  # Increased height for better feel
@@ -113,9 +113,9 @@ def library():
             font=font_main,
             fg_color=button_color,
             hover_color=button_hover_color,
-            command=lambda filename=i[0], creationDate=i[1]: downloadFile(filename, creationDate)
+            command=lambda filename=i[0], creation_date=i[1]: download_file(filename, creation_date)
         )
-        downloadButton.grid(row=index + 1, column=2, padx=20, pady=10, sticky=E)
+        download_button.grid(row=index + 1, column=2, padx=20, pady=10, sticky=E)
 
     # Final configuration to enable scrolling
     canvas.configure(scrollregion=canvas.bbox("all"))
