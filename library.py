@@ -3,9 +3,11 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import datetime
 from backend.download import retrieve_downloads, download_file
+from threading import Thread
 
 def downloadFile(filename, timestamp):
-    download_file(filename+"-**-"+timestamp)
+    thread = Thread(target=lambda lambda_filename=filename, lambda_timestamp=timestamp: download_file(lambda_filename+"-**-"+lambda_timestamp), daemon=False)
+    thread.start()
 
 def library():
     libraryPage = Toplevel()
