@@ -3,6 +3,8 @@ from tkinter import filedialog
 from types import NoneType
 import customtkinter as ctk
 from PIL import Image, ImageTk
+from dearpygui.dearpygui import popup
+
 from library import library
 from threading import Thread
 from backend.webhook import upload_file, get_number_of_files, increase_current_step
@@ -14,23 +16,19 @@ def update_loading_bar(current_step, total_files):
         if total_files != 0:
             current_step = increase_current_step(False)
         total_files = get_number_of_files(0, False)
-        download_label.configure(text=str(current_step+1)+"/"+str(total_files))
-    download_label.configure(text="SUCCESSFULLY OUTSTOCKED YOUR FILE!")
-    download_label.place(rely=0.5)
+        download_label.configure(text=str(current_step + 1) + "/" + str(total_files))
+    loading_bar.destroy()
 
-def file_sel():
-    file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
-    if file_path:
-        libraryPage.configure(state=DISABLED, fg_color="grey")
-        upload_file(file_path)
-    libraryPage.configure(state="normal", fg_color="#1ABC9C")
-    sending_text_label.configure(text="")
 
 def thread_file_sel():
     global total_files
-    thread = Thread(target=file_sel, daemon=False)
-    thread.start()
+    file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
+    if file_path:
+        Thread(target=lambda path=file_path: upload_file(path), daemon=False).start()
+    else:
+        return
 
+    global loading_bar
     loading_bar = Toplevel()
     loading_bar.title("Loading Bar")
     loading_bar.geometry("500x100")
@@ -50,7 +48,8 @@ def thread_file_sel():
         total_files = 0
     total_files = get_number_of_files(0, False)
 
-    Thread(target=lambda step = current_step, tot_files = total_files: update_loading_bar(step, tot_files), daemon=False).start()
+    Thread(target=lambda step=current_step, tot_files=total_files: update_loading_bar(step, tot_files),
+           daemon=False).start()
 
 
 def help_page_launch():
@@ -66,10 +65,12 @@ def help_page_launch():
     help_label2 = Label(help_page, text="", font=("Arial", 12), bg="white")
     help_label2.pack()
 
-    help_label3 = Label(help_page, text="This tool is used to save your files on the discord servers.", font=("Arial", 12), bg="white")
+    help_label3 = Label(help_page, text="This tool is used to save your files on the discord servers.",
+                        font=("Arial", 12), bg="white")
     help_label3.pack()
 
-    help_label4 = Label(help_page, text="Our technology takes your file, breaks it down in sendable packets and then", font=("Arial", 12), bg="white")
+    help_label4 = Label(help_page, text="Our technology takes your file, breaks it down in sendable packets and then",
+                        font=("Arial", 12), bg="white")
     help_label4.pack()
 
     help_label5 = Label(help_page, text="refragments them when needed", font=("Arial", 12), bg="white")
@@ -78,13 +79,17 @@ def help_page_launch():
     help_label6 = Label(help_page, text="", font=("Arial", 12), bg="white")
     help_label6.pack()
 
-    help_label7 = Label(help_page, text="To use our app select a file with the button on the main page and wait to get the message:", font=("Arial", 12), bg="white")
+    help_label7 = Label(help_page,
+                        text="To use our app select a file with the button on the main page and wait to get the message:",
+                        font=("Arial", 12), bg="white")
     help_label7.pack()
 
     help_label8 = Label(help_page, text="\"SUCCESSFULLY OUTSTOCKED YOUR FILE!\"", font=("Arial", 12), bg="white")
     help_label8.pack()
 
-    help_label9 = Label(help_page, text="\nTo retrieve the file go in your library click download and wait to get the message:", font=("Arial", 12), bg="white")
+    help_label9 = Label(help_page,
+                        text="\nTo retrieve the file go in your library click download and wait to get the message:",
+                        font=("Arial", 12), bg="white")
     help_label9.pack()
 
     help_label10 = Label(help_page, text="\"SUCCESSFULLY DOWNLOADED {filename}!\"", font=("Arial", 12), bg="white")
@@ -96,28 +101,30 @@ root = ctk.CTk()
 ico = Image.open('guiAssets/outstock.ico')
 photo = ImageTk.PhotoImage(ico)
 root.wm_iconphoto(False, photo)
-root.configure(fg_color="#2C3E50" )
+root.configure(fg_color="#fff")
 root.resizable(False, False)
 
-titleBar = Frame(root, bg='#2C3E50')
+titleBar = Frame(root, bg='#fff')
 titleBar.pack(fill=X)
 
-header_label = ctk.CTkLabel(master=root, text="OutStock export page", font=("Arial", 25, "bold"),
-                            text_color="#D35400")
-header_label.place(relx=0.5, y=15, anchor=CENTER)  # Add to grid with a colspan for centering
+header_label = ctk.CTkLabel(master=root, text="OutStock", font=("Geneva", 25, "bold"),
+                            text_color="#000")
+header_label.place(relx=0.5, y=25, anchor=CENTER)
 
-helpButton = ctk.CTkButton(master=root, width=50, height=15, border_width=0, corner_radius=8, text="Help ?", command=help_page_launch, fg_color="#1ABC9C", hover_color="#F39C12")
-helpButton.place(x=5, y=5, anchor=NW)
+helpButton = ctk.CTkButton(master=root, width=50, height=32, border_width=0, corner_radius=4, text="Help",
+                           command=help_page_launch, fg_color="#0033ff", hover_color="#0C0E1B")
+helpButton.place(x=100, y=140, anchor=CENTER)
 
-libraryPage = ctk.CTkButton(master=root, width=120, height=32, border_width=0, corner_radius=8, text="Go to library page", command=library, fg_color="#1ABC9C", hover_color="#F39C12",  )
-libraryPage.place(relx=0.5, y=300, anchor=CENTER)
+libraryPage = ctk.CTkButton(master=root, width=70, height=32, border_width=0, corner_radius=2, text="Library",
+                            command=library, fg_color="#0033ff", hover_color="#0C0E1B", )
+libraryPage.place(x=170, y=140, anchor=CENTER)
 
-fileSelector = ctk.CTkButton(master=root, width=400, height=200, border_width=0, corner_radius=8, text="Select File", command=thread_file_sel, fg_color="#1ABC9C", hover_color="#F39C12", font=("Arial", 70, "bold"))
-fileSelector.place(relx=0.5, y=150, anchor=CENTER)
+fileSelector = ctk.CTkButton(master=root, width=200, height=50, border_width=0, corner_radius=2, text="Upload a file",
+                             command=thread_file_sel, fg_color="#0033ff", hover_color="#0C0E1B",
+                             font=("Arial", 20, "bold"))
+fileSelector.place(relx=0.5, y=80, anchor=CENTER)
 
-root.title("OutStocker - Sending")
-root.geometry("500x350")
-
-
+root.title("OutStock")
+root.geometry("275x175")
 
 root.mainloop()
