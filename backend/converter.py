@@ -13,8 +13,10 @@ def file_to_messages(filepath):
 
     messages = []
     with open(filepath, 'rb') as f:
-        for piece in chunks(f):
+        chunks_total = chunks(f)
+        for piece in chunks_total:
             messages.append(piece)
+
 
     return messages
 

@@ -1,12 +1,23 @@
 from tkinter import *
 from tkinter import filedialog
+from types import NoneType
+
 import customtkinter as ctk
 from PIL import Image, ImageTk
 
 from library import library
 from threading import Thread
 
-from backend.webhook import upload_file
+from backend.webhook import upload_file, get_number_of_files, increase_current_step
+
+total_files = 0
+
+def update_loading_bar(current_step, total_files):
+    while current_step < total_files:
+        if total_files != 0:
+            current_step = increase_current_step(False)
+        total_files = get_number_of_files(0, False)
+        download_label.configure(text=str(current_step)+"/"+str(total_files))
 
 def file_sel():
     file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
@@ -16,8 +27,30 @@ def file_sel():
     libraryPage.configure(state="normal", fg_color="#1ABC9C")
 
 def thread_file_sel():
+    global total_files
     thread = Thread(target=file_sel, daemon=False)
     thread.start()
+
+    loading_bar = Toplevel()
+    loading_bar.title("Loading Bar")
+    loading_bar.geometry("500x100")
+    loading_bar.resizable(False, False)
+    loading_bar.configure(bg="white")
+
+    sending_text_label = Label(loading_bar, text="SENDING...", font=("Arial", 18), bg="white")
+    sending_text_label.place(relx=0.5, y=15, anchor=CENTER)
+
+    current_step = -5
+    global download_label
+    download_label = Label(loading_bar, text="0/" + str(total_files), font=("Arial", 18), bg="white")
+    download_label.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+    while get_number_of_files(0, False) == NoneType:
+        total_files = 0
+    total_files = get_number_of_files(0, False)
+
+    Thread(target=lambda step = current_step, tot_files = total_files: update_loading_bar(step, tot_files), daemon=False).start()
+
 
 def help_page_launch():
     help_page = Toplevel()
