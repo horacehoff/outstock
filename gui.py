@@ -1,13 +1,10 @@
 from tkinter import *
 from tkinter import filedialog
 from types import NoneType
-
 import customtkinter as ctk
 from PIL import Image, ImageTk
-
 from library import library
 from threading import Thread
-
 from backend.webhook import upload_file, get_number_of_files, increase_current_step
 
 total_files = 0
@@ -18,6 +15,8 @@ def update_loading_bar(current_step, total_files):
             current_step = increase_current_step(False)
         total_files = get_number_of_files(0, False)
         download_label.configure(text=str(current_step+1)+"/"+str(total_files))
+    download_label.configure(text="SUCCESSFULLY OUTSTOCKED YOUR FILE!")
+    download_label.place(rely=0.5)
 
 def file_sel():
     file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
@@ -25,6 +24,7 @@ def file_sel():
         libraryPage.configure(state=DISABLED, fg_color="grey")
         upload_file(file_path)
     libraryPage.configure(state="normal", fg_color="#1ABC9C")
+    sending_text_label.configure(text="")
 
 def thread_file_sel():
     global total_files
@@ -37,6 +37,7 @@ def thread_file_sel():
     loading_bar.resizable(False, False)
     loading_bar.configure(bg="white")
 
+    global sending_text_label
     sending_text_label = Label(loading_bar, text="SENDING...", font=("Arial", 18), bg="white")
     sending_text_label.place(relx=0.5, y=15, anchor=CENTER)
 
@@ -80,13 +81,13 @@ def help_page_launch():
     help_label7 = Label(help_page, text="To use our app select a file with the button on the main page and wait to get the message:", font=("Arial", 12), bg="white")
     help_label7.pack()
 
-    help_label8 = Label(help_page, text="\"SUCCESSFULLY DOWNLOADED {filename}!\"", font=("Arial", 12), bg="white")
+    help_label8 = Label(help_page, text="\"SUCCESSFULLY OUTSTOCKED YOUR FILE!\"", font=("Arial", 12), bg="white")
     help_label8.pack()
 
     help_label9 = Label(help_page, text="\nTo retrieve the file go in your library click download and wait to get the message:", font=("Arial", 12), bg="white")
     help_label9.pack()
 
-    help_label10 = Label(help_page, text="\"SENT {filename} SUCCESSFULLY!\"", font=("Arial", 12), bg="white")
+    help_label10 = Label(help_page, text="\"SUCCESSFULLY DOWNLOADED {filename}!\"", font=("Arial", 12), bg="white")
     help_label10.pack()
 
 
