@@ -21,8 +21,6 @@ All the files are stored on the discord server you set the webhook in, and the "
 ## Support
 For support, please open an issue on our GitHub page.
 
-## Credits
-GUI by Ulysse Coispellier
 ## Contributing
 Contributions are always welcome!
 
