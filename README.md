@@ -42,4 +42,4 @@ We would like to thank Dev Detour and in particular, his [Stealing Storage from 
 
 ## License
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/2880px-MIT_logo.svg.png" width="20"> [MIT License](LICENSE) \
-Ulysse Coispellier & Horace Hoff 2024
+Horace Hoff & Ulysse Coispellier - 2024
