@@ -17,7 +17,7 @@ def update_loading_bar(current_step, total_files):
         if total_files != 0:
             current_step = increase_current_step(False)
         total_files = get_number_of_files(0, False)
-        download_label.configure(text=str(current_step)+"/"+str(total_files))
+        download_label.configure(text=str(current_step+1)+"/"+str(total_files))
 
 def file_sel():
     file_path = filedialog.askopenfilename(title="Select a File", filetypes=[("All files", "*.*")])
