@@ -18,9 +18,6 @@ All the files are stored on the discord server you set the webhook in, and the "
 ## Screenshots
 ![App Screenshot](https://github.com/horacehoff/outstock/blob/e0b6421a413c1525ef201e57827a101566c74064/readmeAssets/ScreenshotOfAllThePages.png)
 
-## Support
-For support, please open an issue on our GitHub page.
-
 ## Contributing
 Contributions are always welcome!
 
@@ -28,14 +25,7 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-## Documentation
-
-```diff
-+ Please use the "HELP ?" button before using the app.
-```
-
 ## Special thanks
-
 We would like to thank Dev Detour and in particular, his [Stealing Storage from Discord](https://www.youtube.com/watch?v=c_arQ-6ElYI) video which inspired us to create this.
 
 ## License

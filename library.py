@@ -3,7 +3,6 @@ import customtkinter as ctk
 from PIL import Image, ImageTk
 import datetime
 from backend.download import retrieve_downloads, download_file
-from threading import Thread
 
 def download_file_start(filename, timestamp):
     download_file(filename + "-**-" + timestamp)
@@ -16,10 +15,10 @@ def library():
     library_page.wm_iconphoto(False, photo)
 
 
-    primary_color = "#F39C12"  # Burnt orange
-    secondary_color = "#2C3E50"  # Deep cool grey
-    button_color = "#1ABC9C"  # Teal
-    button_hover_color = "#16A085"  # Darker teal
+    primary_color = "#000"  # Burnt orange
+    secondary_color = "white"  # Deep cool grey
+    button_color = "#0033ff"  # Teal
+    button_hover_color = "#0C0E1B"  # Darker teal
     font_main = ("Arial", 14)
     font_header = ("Arial", 25, "bold")
 
@@ -27,7 +26,7 @@ def library():
 
     # Set the title and window size
     library_page.title("OutStock - Library")
-    library_page.geometry("516x908")
+    library_page.geometry("500x500")
     library_page.resizable(False, False)
 
     # Create a canvas to hold the scrollable frame
@@ -69,7 +68,7 @@ def library():
     canvas.bind_all("<Button-5>", on_mousewheel)  # For macOS
 
     # Header label (use grid instead of pack)
-    header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock download page", font=font_header, text_color="#D35400")
+    header_label = ctk.CTkLabel(master=scrollable_frame, text="OutStock - Library", font=font_header, text_color="#000")
     header_label.grid(row=0, column=0, columnspan=3, pady=20, padx=10)  # Add to grid with a colspan for centering
 
     # Add the list of downloads with scrolling capability

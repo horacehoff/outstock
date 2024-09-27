@@ -3,8 +3,6 @@ from tkinter import filedialog
 from types import NoneType
 import customtkinter as ctk
 from PIL import Image, ImageTk
-from dearpygui.dearpygui import popup
-
 from library import library
 from threading import Thread
 from backend.webhook import upload_file, get_number_of_files, increase_current_step
@@ -30,13 +28,13 @@ def thread_file_sel():
 
     global loading_bar
     loading_bar = Toplevel()
-    loading_bar.title("Loading Bar")
+    loading_bar.title("OutStock - Uploading...")
     loading_bar.geometry("500x100")
     loading_bar.resizable(False, False)
     loading_bar.configure(bg="white")
 
     global sending_text_label
-    sending_text_label = Label(loading_bar, text="SENDING...", font=("Arial", 18), bg="white")
+    sending_text_label = Label(loading_bar, text="SENDING...", font=("Geneva", 18), bg="white")
     sending_text_label.place(relx=0.5, y=15, anchor=CENTER)
 
     current_step = -5
@@ -55,45 +53,18 @@ def thread_file_sel():
 def help_page_launch():
     help_page = Toplevel()
     help_page.title("Help")
-    help_page.geometry("500x350")
+    help_page.geometry("350x90")
     help_page.resizable(False, False)
     help_page.config(bg="white")
 
     help_label = Label(help_page, text="Welcome to OutStock", font=("Arial", 18), bg="white")
     help_label.pack()
 
-    help_label2 = Label(help_page, text="", font=("Arial", 12), bg="white")
+    help_label2 = Label(help_page, text="\n"
+                                        "This tool is used to save your files on the discord servers.\n"
+                                        "It fragments your file in smaller ones that can be sent on discord, and\n"
+                                        "refragments them when you want to download your file back.\n", font=("Arial", 11), bg="white")
     help_label2.pack()
-
-    help_label3 = Label(help_page, text="This tool is used to save your files on the discord servers.",
-                        font=("Arial", 12), bg="white")
-    help_label3.pack()
-
-    help_label4 = Label(help_page, text="Our technology takes your file, breaks it down in sendable packets and then",
-                        font=("Arial", 12), bg="white")
-    help_label4.pack()
-
-    help_label5 = Label(help_page, text="refragments them when needed", font=("Arial", 12), bg="white")
-    help_label5.pack()
-
-    help_label6 = Label(help_page, text="", font=("Arial", 12), bg="white")
-    help_label6.pack()
-
-    help_label7 = Label(help_page,
-                        text="To use our app select a file with the button on the main page and wait to get the message:",
-                        font=("Arial", 12), bg="white")
-    help_label7.pack()
-
-    help_label8 = Label(help_page, text="\"SUCCESSFULLY OUTSTOCKED YOUR FILE!\"", font=("Arial", 12), bg="white")
-    help_label8.pack()
-
-    help_label9 = Label(help_page,
-                        text="\nTo retrieve the file go in your library click download and wait to get the message:",
-                        font=("Arial", 12), bg="white")
-    help_label9.pack()
-
-    help_label10 = Label(help_page, text="\"SUCCESSFULLY DOWNLOADED {filename}!\"", font=("Arial", 12), bg="white")
-    help_label10.pack()
 
 
 root = ctk.CTk()
