@@ -8,7 +8,7 @@ All the files are stored on the discord server you set the webhook in, and the "
 - BEWARE !!!
 
 - Do not delete the "history" file or the links to your files might be PERMANENTLY lost and 
-- they won't be able to be retrieved.
+- won't be able to be retrieved.
 ```
 
 ## Installation
